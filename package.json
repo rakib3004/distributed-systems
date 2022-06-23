@@ -4,7 +4,9 @@
   "description": "Distributed System's Implementation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "git": "git add . ; git commit -m 'development' ; git push"
   },
   "repository": {
     "type": "git",
