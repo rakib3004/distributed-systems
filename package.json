@@ -1,0 +1,26 @@
+{
+  "name": "distributedsystem",
+  "version": "1.0.0",
+  "description": "Distributed System's Implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rakib3004/DistributedSystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rakib3004/DistributedSystem/issues"
+  },
+  "homepage": "https://github.com/rakib3004/DistributedSystem#readme",
+  "devDependencies": {
+    "nodemon": "^1.3.3"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
