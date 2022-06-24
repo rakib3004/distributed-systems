@@ -1,34 +1,24 @@
-// In src/controllers/workoutControllers.js
+// In src/controllers/workoutController.js
 const workoutService = require("../services/workoutService");
 
 const getAllWorkouts = (req, res) => {
   const allWorkouts = workoutService.getAllWorkouts();
-  // *** ADD ***
   res.send({ status: "OK", data: allWorkouts });
 };
 
 const getOneWorkout = (req, res) => {
-  const workout = workoutService.getOneWorkout();
-  res.send("Get an existing workout");
+  const {
+    params: { workoutId },
+  } = req;
+  if (!workoutId) {
+    return;
+  }
+  const workout = workoutService.getOneWorkout(workoutId);
+  res.send({ status: "OK", data: workout });
 };
-
-
-
-const updateOneWorkout = (req, res) => {
-  const updatedWorkout = workoutService.updateOneWorkout();
-  res.send("Update an existing workout");
-};
-
-const deleteOneWorkout = (req, res) => {
-  workoutService.deleteOneWorkout();
-  res.send("Delete an existing workout");
-};
-
-
 
 const createNewWorkout = (req, res) => {
   const { body } = req;
-  // *** ADD ***
   if (
     !body.name ||
     !body.mode ||
@@ -38,7 +28,6 @@ const createNewWorkout = (req, res) => {
   ) {
     return;
   }
-  // *** ADD ***
   const newWorkout = {
     name: body.name,
     mode: body.mode,
@@ -46,12 +35,32 @@ const createNewWorkout = (req, res) => {
     exercises: body.exercises,
     trainerTips: body.trainerTips,
   };
-  // *** ADD ***
   const createdWorkout = workoutService.createNewWorkout(newWorkout);
-  // *** ADD ***
   res.status(201).send({ status: "OK", data: createdWorkout });
 };
 
+const updateOneWorkout = (req, res) => {
+  const {
+    body,
+    params: { workoutId },
+  } = req;
+  if (!workoutId) {
+    return;
+  }
+  const updatedWorkout = workoutService.updateOneWorkout(workoutId, body);
+  res.send({ status: "OK", data: updatedWorkout });
+};
+
+const deleteOneWorkout = (req, res) => {
+  const {
+    params: { workoutId },
+  } = req;
+  if (!workoutId) {
+    return;
+  }
+  workoutService.deleteOneWorkout(workoutId);
+  res.status(204).send({ status: "OK" });
+};
 
 module.exports = {
   getAllWorkouts,
