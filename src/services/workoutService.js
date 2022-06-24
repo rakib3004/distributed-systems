@@ -22,7 +22,6 @@ const createNewWorkout = (newWorkout) => {
   const createdWorkout = Workout.createNewWorkout(workoutToInsert);
   return createdWorkout;
 };
-
 const updateOneWorkout = (workoutId, changes) => {
   const updatedWorkout = Workout.updateOneWorkout(workoutId, changes);
   return updatedWorkout;
