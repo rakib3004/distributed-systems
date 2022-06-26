@@ -1,7 +1,6 @@
-const res = require('express/lib/response');
-
 const app = require('express')();
 const PORT =8080;
+
 
 app.get('/tshirt', (req,res)=>{
 
@@ -10,5 +9,26 @@ app.get('/tshirt', (req,res)=>{
         tshirt: 'T-Shirt',
         size: 'large'
     })
+})
+
+
+app.post('/tshirt/:id', (req,res)=>{
+
+    const {id} = req.params;
+    const {logo} = req.body;
+
+    if(!logo){
+
+        res.status(418).send({message: 'We need a logo'})
+    }
+
+
+    res.send({
+
+        tshirt: `T-Shirt with your ${logo} and item_id: ${id}`,
+    })
+})
+
+app.listen(PORT, ()=>{
 
 })
