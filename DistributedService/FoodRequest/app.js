@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT =2000;
+const PORT =3000;
 
 app.use(express.json())
 
@@ -58,7 +58,7 @@ app.post('/donor/:id', (req,res)=>{
 
     res.status(400).send({
 
-        name: `${name} + ${name}`,
+        name: `${name}`,
     })
 })
 
