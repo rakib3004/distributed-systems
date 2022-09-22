@@ -1,6 +1,8 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const PORT =4040;
 
+app.use(express.json())
 
 app.get('/donor', (req,res)=>{
 
@@ -41,13 +43,11 @@ app.get('/transaction', (req,res)=>{
 
 
 
-app.post('/receiver/:id', (req,res)=>{
+app.post('/donor/:id', (req,res)=>{
 
-    const {id} = req.params;
-    const {name} = req.body.name;
-    const {food} = req.body.food;
-    const {item} = req.body.item;
-    const {date} = req.body.date;
+    const id = req.params.id;
+    const name = req.body.name;
+   
 
 
     if(!name){
@@ -56,9 +56,9 @@ app.post('/receiver/:id', (req,res)=>{
     }
 
 
-    res.send({
+    res.status(400).send({
 
-        foodDetails: `name: ${name}, food: ${food}, item: ${item}, date:  `,
+        name: `${name}`,
     })
 })
 
