@@ -41,6 +41,28 @@ app.get('/transaction', (req,res)=>{
 
 
 
+app.post('/receiver/:id', (req,res)=>{
+
+    const {id} = req.params;
+    const {name} = req.body.name;
+    const {food} = req.body.food;
+    const {item} = req.body.item;
+    const {date} = req.body.date;
+
+
+    if(!name){
+
+        res.status(418).send({message: 'We need a name'})
+    }
+
+
+    res.send({
+
+        foodDetails: `name: ${name}, food: ${food}, item: ${item}, date:  `,
+    })
+})
+
+
 app.listen(PORT, ()=>{
 
 })
