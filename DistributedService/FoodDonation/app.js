@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const PORT =3000;
+const PORT =3001;
 
 app.use(express.json())
 
-app.get('/donor', (req,res)=>{
+app.get('/donation', (req,res)=>{
 
     res.status(200).send({
 
@@ -18,19 +18,9 @@ app.get('/donor', (req,res)=>{
 
 
 
-app.get('/receiver', (req,res)=>{
-
-    res.status(200).send({
-
-        name: 'Our Home',
-        food: 'Rice',
-        item: '500',
-        date: '21 Sept, 2022'
-    })
-})
 
 
-app.get('/transaction', (req,res)=>{
+app.get('/management', (req,res)=>{
 
     res.status(200).send({
 
