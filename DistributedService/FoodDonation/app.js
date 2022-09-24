@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT =3001;
+const PORT =1001;
 
 app.use(express.json())
 
@@ -17,23 +17,7 @@ app.get('/donation', (req,res)=>{
 
 
 
-
-
-
-app.get('/management', (req,res)=>{
-
-    res.status(200).send({
-
-        donor: 'Star Kabab',
-        receiver: 'Biriyani',
-        item: '90',
-        delivery: 'pathao'
-    })
-})
-
-
-
-app.post('/donor/:id', (req,res)=>{
+app.post('/donation/:id', (req,res)=>{
 
     const id = req.params.id;
     const name = req.body.name;
