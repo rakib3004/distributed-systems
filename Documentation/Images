@@ -1,1 +1,2 @@
 docker images -a
+docker image rm 1121ff97d337 5c1f8ab28147 74f9bdc0f30d c0a509c17db7
