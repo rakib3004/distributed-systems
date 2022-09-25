@@ -1,0 +1,9 @@
+const f = require('./func');
+  
+// Require returns an object with add()
+// and stores it in the f variable 
+// which is used to invoke the required 
+  
+const result = f.add(10, 5);
+  
+console.log('The result is:', result);

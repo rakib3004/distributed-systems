@@ -5,24 +5,22 @@ services:
         image: nginx:latest
         restart: unless-stopped
         ports:
-            - 789:789
+            - 1129:1129
         volumes:
             - ./nginx.conf:/etc/nginx/conf.d/default.conf
         depends_on:
-            - shortservice
-            - videoservice
+            - rakib_server
 
-    shortservice:
-        build: ./Shorts
+    rakib_server:
+        build: ./Students
         restart: unless-stopped
+        volumes:
+            - /home/rakib3004/Desktop/BSSE_1129:usr/src/
         
 
 
     
-    videoservice:
-        build: ./Videos
-        restart: unless-stopped
+ 
         
 volumes:
-    shortservice:
-    videoservice:
+    BSSE_1129:

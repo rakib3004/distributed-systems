@@ -16,21 +16,31 @@ app.get('/backupStudents', (req,res)=>{
 
     var drive_data = JSON.stringify(data);
 
-    var fs = require('fs')
+ var fs = require('fs')
 
-    var file = fs.createWriteStream('BSSE.txt');
+   /* const f = require('./BSSE.txt');*/
 
-    file.on('error',function(error){
-        res.status(418).send({message: 'Failed to backup'})
-    });
+ var file = fs.createWriteStream('BSSE.txt');
+
+  // var file = require('./BSSE.txt')
+    
+ /* fs.writeFileSync("BSSE.txt", drive_data, function(err){
+   // if(err) throw err;
+    console.log('Done')
+  })
+*/
+file.open('error',function(error){});
 
     data.forEach(function(v){
-        file.write(v)
+        file.write(v+'\n')
 
+    });
         file.end();
 
-    })
 
+res.status(200).send({
+message: "Successful"
+});
 
 
 })
