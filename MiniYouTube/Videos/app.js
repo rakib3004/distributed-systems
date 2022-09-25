@@ -4,15 +4,20 @@ const PORT =2040;
 
 app.use(express.json())
 
+let data = [
+    {
+        name: "Introduction to Docker",
+        playlist: "Distributed Tutorial"
+    },
+    {
+        name: "Docker Swarm in 200 secs",
+        playlist: "Crash Turorial"
+    }
+]
+
 app.get('/videos', (req,res)=>{
 
-    res.status(200).send({
-
-
-        name: 'IT Park Tour',
-        playlist: 'Tech Tour',
-        date: '25 Sept, 2022'
-    })
+    res.json(data);
 })
 
 
