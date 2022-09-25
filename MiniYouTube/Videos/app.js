@@ -21,6 +21,7 @@ app.post('/videos/:id', (req,res)=>{
 
     const id = req.params.id;
     const name = req.body.name;
+    const playlist = req.body.playlist;
    
 
 
@@ -33,6 +34,7 @@ app.post('/videos/:id', (req,res)=>{
     res.status(400).send({
 
         name: `${name}`,
+        playlist: `${playlist}`
     })
 })
 
