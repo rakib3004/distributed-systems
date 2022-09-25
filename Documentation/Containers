@@ -1,0 +1,3 @@
+docker ps
+docker kill $(docker ps -q)
+docker rm $(docker ps -a -f status=exited -q)
