@@ -23,3 +23,6 @@ services:
         build: ./Videos
         restart: unless-stopped
         
+volumes:
+    shortservice:
+    videoservice:
